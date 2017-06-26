@@ -1,0 +1,31 @@
+ID: TechEd2017CentralConsumptionDB
+_schema-version: '2.0'
+description: Example of Central Container Consumption for DB module
+version: 1.0.2017
+
+modules:
+ - name: db
+   type: hdb
+   path: db
+   requires:
+    - name: hdi-container
+      properties:
+        TARGET_CONTAINER: '~{hdi-container-name}'
+    - name: CentralDB
+      group: SERVICE_REPLACEMENTS
+      properties:
+        key: central-db-service
+        service: '~{central-db-name}'    
+        
+resources:
+ - name: hdi-container
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ - name: CentralDB
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: teched-2017-container
+   properties:
+     central-db-name: '${service-name}'

@@ -1,0 +1,16 @@
+{
+  "PO.Header": {
+    "target": {
+      "object": "PO.Header",
+      "schema": "TECHED_2017",
+      "database": "TDH"
+    }
+  },
+  "PO.Item": {
+    "target": {
+      "object": "PO.Item",
+      "schema": "TECHED_2017",
+      "database": "TDH"
+    }
+  }
+}
